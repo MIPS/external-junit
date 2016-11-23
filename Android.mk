@@ -19,13 +19,6 @@ LOCAL_PATH := $(call my-dir)
 # include definition of core-junit-files
 include $(LOCAL_PATH)/Common.mk
 
-# note: this is deprecated in favour of junit-host; this will be removed soon.
-include $(CLEAR_VARS)
-LOCAL_MODULE := junit
-LOCAL_MODULE_TAGS := optional
-LOCAL_STATIC_JAVA_LIBRARIES := junit-host
-include $(BUILD_HOST_JAVA_LIBRARY)
-
 # build a junit-host jar
 # ----------------------
 
