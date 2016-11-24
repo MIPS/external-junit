@@ -27,6 +27,14 @@ src/junit/framework/TestSuite.java
 #
 junit-runner-files := \
 src/junit/runner/BaseTestRunner.java \
+src/junit/runner/ClassPathTestCollector.java \
+src/junit/runner/FailureDetailView.java \
+src/junit/runner/LoadingTestCollector.java \
+src/junit/runner/ReloadingTestSuiteLoader.java \
+src/junit/runner/SimpleTestCollector.java \
+src/junit/runner/Sorter.java \
+src/junit/runner/TestCaseClassLoader.java \
+src/junit/runner/TestCollector.java \
 src/junit/runner/TestRunListener.java \
 src/junit/runner/TestSuiteLoader.java \
 src/junit/runner/StandardTestSuiteLoader.java \
