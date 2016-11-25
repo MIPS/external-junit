@@ -24,17 +24,13 @@ src/junit/framework/TestResult.java \
 src/junit/framework/TestSuite.java
 
 # List of source to build into the android.test.runner library
+# - Although they are not part of 4.10 the following classes are
+#   needed for backwards compatibility in Android API.
+#   * src/junit/runner/TestSuiteLoader.java
+#   * src/junit/runner/StandardTestSuiteLoader.java
 #
 junit-runner-files := \
 src/junit/runner/BaseTestRunner.java \
-src/junit/runner/ClassPathTestCollector.java \
-src/junit/runner/FailureDetailView.java \
-src/junit/runner/LoadingTestCollector.java \
-src/junit/runner/ReloadingTestSuiteLoader.java \
-src/junit/runner/SimpleTestCollector.java \
-src/junit/runner/Sorter.java \
-src/junit/runner/TestCaseClassLoader.java \
-src/junit/runner/TestCollector.java \
 src/junit/runner/TestRunListener.java \
 src/junit/runner/TestSuiteLoader.java \
 src/junit/runner/StandardTestSuiteLoader.java \
