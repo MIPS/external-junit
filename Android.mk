@@ -53,15 +53,15 @@ LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_JAVA_LIBRARY)
 
-# ----------------------------------
 # build a junit-hostdex jar
+# -------------------------
 
 ifeq ($(HOST_OS),linux)
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src/junit/extensions)
-LOCAL_SRC_FILES += $(core-junit-files)
-LOCAL_SRC_FILES += $(junit-runner-files)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_MODULE := junit-hostdex
+LOCAL_MODULE_TAGS := tests
+LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-hostdex
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_HOST_DALVIK_JAVA_LIBRARY)
 endif # HOST_OS == linux
