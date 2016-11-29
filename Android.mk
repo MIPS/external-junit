@@ -79,6 +79,19 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.m
 include $(BUILD_JAVA_LIBRARY)
 
 # ----------------------------------
+# build a core-junit-static target jar that is embedded into legacy-test
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := $(call all-java-files-under, src/junit/extensions)
+LOCAL_SRC_FILES += $(core-junit-files)
+LOCAL_NO_STANDARD_LIBRARIES := true
+LOCAL_JAVA_LIBRARIES := core-oj core-libart
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := core-junit-static
+LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
+include $(BUILD_STATIC_JAVA_LIBRARY)
+
+# ----------------------------------
 # build a core-junit-hostdex jar that contains exactly the same classes
 # as core-junit.
 
