@@ -41,14 +41,12 @@ include $(BUILD_HOST_JAVA_LIBRARY)
 # build a junit-targetdex jar
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src/junit/extensions)
-LOCAL_SRC_FILES += $(core-junit-files)
-LOCAL_SRC_FILES += $(junit-runner-files)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
 # TODO: lose the suffix here and rename "junit" to "junit-hostdex"
 LOCAL_MODULE := junit-targetdex
-LOCAL_NO_STANDARD_LIBRARIES := true
-LOCAL_JAVA_LIBRARIES := core-oj core-libart
 LOCAL_MODULE_TAGS := tests
+LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
+# The following is needed by external/apache-harmony/Android_debug_config.mk
 LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_JAVA_LIBRARY)
