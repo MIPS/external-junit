@@ -19,13 +19,25 @@ LOCAL_PATH := $(call my-dir)
 # include definition of core-junit-files
 include $(LOCAL_PATH)/Common.mk
 
+# build a junit jar
+# ----------------------
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_MODULE := junit
+LOCAL_MODULE_TAGS := tests
+LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
+# The following is needed by external/apache-harmony/jdwp/Android_debug_config.mk
+LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
+LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
+include $(BUILD_STATIC_JAVA_LIBRARY)
+
 # build a junit-host jar
 # ----------------------
 
 include $(CLEAR_VARS)
 LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_MODULE := junit-host
-LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-host
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_HOST_JAVA_LIBRARY)
@@ -39,7 +51,7 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_MODULE := junit-targetdex
 LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
-# The following is needed by external/apache-harmony/Android_debug_config.mk
+# The following is needed by external/apache-harmony/jdwp/Android_debug_config.mk
 LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_JAVA_LIBRARY)
