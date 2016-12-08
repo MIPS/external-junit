@@ -26,9 +26,11 @@ LOCAL_SRC_FILES := $(call all-java-files-under, src)
 LOCAL_MODULE := junit
 LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
+LOCAL_JAVA_LIBRARIES := core-oj core-libart
 # The following is needed by external/apache-harmony/jdwp/Android_debug_config.mk
 LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
+LOCAL_NO_STANDARD_LIBRARIES := true
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 # build a junit-host jar
