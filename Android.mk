@@ -43,20 +43,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-host
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_HOST_JAVA_LIBRARY)
 
-# ----------------------------------
-# build a junit-targetdex jar
-
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
-# TODO: lose the suffix here and rename "junit" to "junit-hostdex"
-LOCAL_MODULE := junit-targetdex
-LOCAL_MODULE_TAGS := tests
-LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
-# The following is needed by external/apache-harmony/jdwp/Android_debug_config.mk
-LOCAL_MODULE_PATH := $(TARGET_OUT_DATA)/junit
-LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
-include $(BUILD_JAVA_LIBRARY)
-
 # build a junit-hostdex jar
 # -------------------------
 
