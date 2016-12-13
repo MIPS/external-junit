@@ -111,17 +111,12 @@ LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.m
 include $(BUILD_STATIC_JAVA_LIBRARY)
 
 #-------------------------------------------------------
-# build a junit4-target jar representing the
-# classes in external/junit that are not in the core public API 4
-# Note: 'core' here means excluding the classes that are contained
-# in the optional library android.test.runner. Developers who
-# build against this jar shouldn't have to also include android.test.runner
+# build a junit4-target jar as an alias for junit
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(junit4-target-src)
 LOCAL_MODULE := junit4-target
 LOCAL_MODULE_TAGS := optional
 LOCAL_SDK_VERSION := 25
-LOCAL_STATIC_JAVA_LIBRARIES := hamcrest
+LOCAL_STATIC_JAVA_LIBRARIES := junit hamcrest
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_STATIC_JAVA_LIBRARY)
