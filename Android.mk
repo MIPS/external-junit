@@ -19,7 +19,7 @@ LOCAL_PATH := $(call my-dir)
 # build a junit jar
 # ----------------------
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES := $(call all-java-files-under, src/main/java)
 LOCAL_MODULE := junit
 LOCAL_MODULE_TAGS := tests
 LOCAL_SDK_VERSION := 25
@@ -33,7 +33,7 @@ include $(BUILD_STATIC_JAVA_LIBRARY)
 # ----------------------
 
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES := $(call all-java-files-under, src/main/java)
 LOCAL_MODULE := junit-host
 LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-host
@@ -45,7 +45,7 @@ include $(BUILD_HOST_JAVA_LIBRARY)
 
 ifeq ($(HOST_OS),linux)
 include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src)
+LOCAL_SRC_FILES := $(call all-java-files-under, src/main/java)
 LOCAL_MODULE := junit-hostdex
 LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-hostdex
