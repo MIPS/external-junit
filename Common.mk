@@ -3,7 +3,7 @@
 # Shared with frameworks/base.
 # based off libcore/Docs.mk
 # Exports:
-#   core-junit-files, junit-runner-files, junit_to_document.
+#   core-junit-files, junit_to_document.
 #   They are lists of .java files relative to external/junit/.
 
 ifndef junit4_common_include_once
@@ -23,26 +23,10 @@ src/junit/framework/TestListener.java \
 src/junit/framework/TestResult.java \
 src/junit/framework/TestSuite.java
 
-# List of source to build into the android.test.runner library
-# - Although they are not part of 4.10 the following classes are
-#   needed for backwards compatibility in Android API.
-#   * src/junit/runner/TestSuiteLoader.java
-#   * src/junit/runner/StandardTestSuiteLoader.java
-#
-junit-runner-files := \
-src/junit/runner/BaseTestRunner.java \
-src/junit/runner/TestRunListener.java \
-src/junit/runner/TestSuiteLoader.java \
-src/junit/runner/StandardTestSuiteLoader.java \
-src/junit/runner/Version.java \
-src/junit/textui/ResultPrinter.java \
-src/junit/textui/TestRunner.java
-
 # List of junit javadoc source files for Android public API
 #
 junit_to_document := \
- $(core-junit-files) \
- $(junit-runner-files)
+ $(core-junit-files)
 
 junit4_common_include_once := 1
 endif  # junit4_common_include_once
