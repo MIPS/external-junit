@@ -2,9 +2,7 @@
 package junit.textui;
 
 import java.io.PrintStream;
-// android-changed
-// The following line was removed for compatibility with Android libraries.
-// import java.text.NumberFormat;
+import java.text.NumberFormat;
 import java.util.Enumeration;
 
 import junit.framework.AssertionFailedError;
@@ -101,10 +99,7 @@ public class ResultPrinter implements TestListener {
 	 * Duplicated from BaseTestRunner. Fix it.
 	 */
 	protected String elapsedTimeAsString(long runTime) {
-		// android-changed
-		// The following line was altered for compatibility with
-		// Android libraries.
-		return Double.toString((double)runTime/1000);
+		return NumberFormat.getInstance().format((double)runTime/1000);
 	}
 
 	public PrintStream getWriter() {
