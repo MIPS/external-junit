@@ -16,9 +16,6 @@
 
 LOCAL_PATH := $(call my-dir)
 
-# include definition of core-junit-files
-include $(LOCAL_PATH)/Common.mk
-
 # build a junit jar
 # ----------------------
 include $(CLEAR_VARS)
@@ -55,33 +52,6 @@ LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-hostdex
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
 include $(BUILD_HOST_DALVIK_JAVA_LIBRARY)
 endif # HOST_OS == linux
-
-# ----------------------------------
-# build a core-junit target jar that is built into Android system image
-
-# TODO: remove extensions once core-tests is no longer dependent on it
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src/junit/extensions)
-LOCAL_SRC_FILES += $(core-junit-files)
-LOCAL_NO_STANDARD_LIBRARIES := true
-LOCAL_JAVA_LIBRARIES := core-oj core-libart
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := core-junit
-LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
-include $(BUILD_JAVA_LIBRARY)
-
-# ----------------------------------
-# build a core-junit-static target jar that is embedded into legacy-test
-
-include $(CLEAR_VARS)
-LOCAL_SRC_FILES := $(call all-java-files-under, src/junit/extensions)
-LOCAL_SRC_FILES += $(core-junit-files)
-LOCAL_NO_STANDARD_LIBRARIES := true
-LOCAL_JAVA_LIBRARIES := core-oj core-libart
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE := core-junit-static
-LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk $(LOCAL_PATH)/Common.mk
-include $(BUILD_STATIC_JAVA_LIBRARY)
 
 #-------------------------------------------------------
 # build a junit4-target jar as an alias for junit
