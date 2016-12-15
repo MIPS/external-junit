@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Vector;
 
 /**
  * A <code>TestResult</code> collects the results of executing
@@ -16,20 +15,16 @@ import java.util.Vector;
  * @see Test
  */
 public class TestResult extends Object {
-	// BEGIN android-changed changed types from List<> to Vector<> for API compatibility
-	protected Vector<TestFailure> fFailures;
-	protected Vector<TestFailure> fErrors;
-	protected Vector<TestListener> fListeners;
-	// END android-changed
+	protected List<TestFailure> fFailures;
+	protected List<TestFailure> fErrors;
+	protected List<TestListener> fListeners;
 	protected int fRunTests;
 	private boolean fStop;
 	
 	public TestResult() {
-		// BEGIN android-changed to Vector
-		fFailures= new Vector<TestFailure>();
-		fErrors= new Vector<TestFailure>();
-		fListeners= new Vector<TestListener>();
-		// END android-changed
+		fFailures= new ArrayList<TestFailure>();
+		fErrors= new ArrayList<TestFailure>();
+		fListeners= new ArrayList<TestListener>();
 		fRunTests= 0;
 		fStop= false;
 	}
