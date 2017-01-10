@@ -4,12 +4,16 @@ import java.io.PrintStream;
 
 public class RealSystem implements JUnitSystem {
 
-	public void exit(int code) {
-		System.exit(code);
-	}
+    /**
+     * Will be removed in the next major release
+     */
+    @Deprecated
+    public void exit(int code) {
+        System.exit(code);
+    }
 
-	public PrintStream out() {
-		return System.out;
-	}
+    public PrintStream out() {
+        return System.out;
+    }
 
 }
