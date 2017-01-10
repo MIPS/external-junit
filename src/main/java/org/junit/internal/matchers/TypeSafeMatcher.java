@@ -3,16 +3,13 @@ package org.junit.internal.matchers;
 import java.lang.reflect.Method;
 
 import org.hamcrest.BaseMatcher;
-import org.junit.internal.MethodSorter;
 
 /**
  * Convenient base class for Matchers that require a non-null value of a specific type.
  * This simply implements the null check, checks the type and then casts.
  *
  * @author Joe Walnes
- * @deprecated Please use {@link org.hamcrest.TypeSafeMatcher}.
  */
-@Deprecated
 public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
 
     private Class<?> expectedType;
@@ -26,27 +23,27 @@ public abstract class TypeSafeMatcher<T> extends BaseMatcher<T> {
     protected TypeSafeMatcher() {
         expectedType = findExpectedType(getClass());
     }
-
+    
     private static Class<?> findExpectedType(Class<?> fromClass) {
         for (Class<?> c = fromClass; c != Object.class; c = c.getSuperclass()) {
-            for (Method method : MethodSorter.getDeclaredMethods(c)) {
+            for (Method method : c.getDeclaredMethods()) {
                 if (isMatchesSafelyMethod(method)) {
                     return method.getParameterTypes()[0];
                 }
             }
         }
-
+        
         throw new Error("Cannot determine correct type for matchesSafely() method.");
     }
-
+    
     private static boolean isMatchesSafelyMethod(Method method) {
-        return method.getName().equals("matchesSafely")
-                && method.getParameterTypes().length == 1
-                && !method.isSynthetic();
+        return method.getName().equals("matchesSafely") 
+            && method.getParameterTypes().length == 1
+            && !method.isSynthetic(); 
     }
-
+    
     protected TypeSafeMatcher(Class<T> expectedType) {
-        this.expectedType = expectedType;
+    	this.expectedType = expectedType;
     }
 
     /**
