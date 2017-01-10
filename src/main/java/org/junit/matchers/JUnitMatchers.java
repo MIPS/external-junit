@@ -24,7 +24,7 @@ public class JUnitMatchers {
 	 * @return A matcher matching any collection containing an element matching elementMatcher
 	 */
 	public static <T> org.hamcrest.Matcher<java.lang.Iterable<T>> hasItem(org.hamcrest.Matcher<? extends T> elementMatcher) {
-		return IsCollectionContaining.hasItem(elementMatcher);
+		return IsCollectionContaining.<T>hasItem(elementMatcher);
 	}
 
 	/**
@@ -42,7 +42,7 @@ public class JUnitMatchers {
 	 *         or different elements matching each matcher)
 	 */
 	public static <T> org.hamcrest.Matcher<java.lang.Iterable<T>> hasItems(org.hamcrest.Matcher<? extends T>... elementMatchers) {
-		return IsCollectionContaining.hasItems(elementMatchers);
+		return IsCollectionContaining.<T>hasItems(elementMatchers);
 	}
 
 	/**
