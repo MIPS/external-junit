@@ -2,16 +2,15 @@ package org.junit.internal.runners.statements;
 
 import org.junit.runners.model.Statement;
 
-
 public class Fail extends Statement {
-	private final Throwable fError;
+    private final Throwable error;
 
-	public Fail(Throwable e) {
-		fError= e;
-	}
+    public Fail(Throwable e) {
+        error = e;
+    }
 
-	@Override
-	public void evaluate() throws Throwable {
-		throw fError;
-	}
+    @Override
+    public void evaluate() throws Throwable {
+        throw error;
+    }
 }

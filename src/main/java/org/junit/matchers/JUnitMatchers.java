@@ -79,5 +79,5 @@ public class JUnitMatchers {
 	 */
 	public static <T> CombinableMatcher<T> either(Matcher<T> matcher) {
 		return new CombinableMatcher<T>(matcher);
-	}	
+	}
 }
