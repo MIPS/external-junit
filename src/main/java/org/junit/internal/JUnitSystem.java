@@ -3,6 +3,12 @@ package org.junit.internal;
 import java.io.PrintStream;
 
 public interface JUnitSystem {
-	void exit(int i);
-	PrintStream out();
+
+    /**
+     * Will be removed in the next major release
+     */
+    @Deprecated
+    void exit(int code);
+
+    PrintStream out();
 }
