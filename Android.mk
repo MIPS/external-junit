@@ -50,7 +50,7 @@ LOCAL_MODULE := junit-hostdex
 LOCAL_MODULE_TAGS := tests
 LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-hostdex
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
-include $(BUILD_HOST_DALVIK_JAVA_LIBRARY)
+include $(BUILD_HOST_DALVIK_STATIC_JAVA_LIBRARY)
 endif # HOST_OS == linux
 
 #-------------------------------------------------------
