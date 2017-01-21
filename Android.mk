@@ -52,14 +52,3 @@ LOCAL_STATIC_JAVA_LIBRARIES := hamcrest-hostdex
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 include $(BUILD_HOST_DALVIK_STATIC_JAVA_LIBRARY)
 endif # HOST_OS == linux
-
-#-------------------------------------------------------
-# build a junit4-target jar as an alias for junit
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := junit4-target
-LOCAL_MODULE_TAGS := optional
-LOCAL_SDK_VERSION := 25
-LOCAL_STATIC_JAVA_LIBRARIES := junit hamcrest
-LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
-include $(BUILD_STATIC_JAVA_LIBRARY)
