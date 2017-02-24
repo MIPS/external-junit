@@ -1,12 +1,12 @@
 package org.junit;
 
 import static java.util.Arrays.asList;
+import static org.hamcrest.CoreMatchers.everyItem;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.CoreMatchers.nullValue;
 
 import org.hamcrest.Matcher;
-import org.junit.internal.matchers.Each;
 
 /**
  * A set of methods useful for stating assumptions about the conditions in which a test is meaningful.
@@ -66,13 +66,12 @@ public class Assume {
         assumeTrue(message, !b);
     }
 
-	/**
-	 * If called with one or more null elements in <code>objects</code>, the test will halt and be ignored.
-	 * @param objects
-	 */
-	public static void assumeNotNull(Object... objects) {
-		assumeThat(asList(objects), Each.each(notNullValue()));
-	}
+    /**
+     * If called with one or more null elements in <code>objects</code>, the test will halt and be ignored.
+     */
+    public static void assumeNotNull(Object... objects) {
+        assumeThat(asList(objects), everyItem(notNullValue()));
+    }
 
     /**
      * Call to assume that <code>actual</code> satisfies the condition specified by <code>matcher</code>.
