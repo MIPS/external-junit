@@ -5,5 +5,4 @@ BugComponent: 40416
 Local Changes:
     Remove DisableOnDebug (new in 4.12) as it is not supported on Android
     Remove support for stuck threads
-    Revert matchers back to 4.10 to compile against Hamcrest 1.1
     Extra generic type information to aid certain javacs.
